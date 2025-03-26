@@ -28,17 +28,20 @@ void ATetrisBoard::Tick(float DeltaTime)
 
 void ATetrisBoard::GenerateBoard()
 {
-    FVector BoardOrigin = GetActorLocation(); // 기준 위치 설정
+    FVector BoardOrigin = GetActorLocation();
 
     for (int32 y = 0; y < BoardHeight; y++)
     {
         for (int32 x = 0; x < BoardWidth; x++)
         {
-            FVector BlockLocation = BoardOrigin + FVector(x * BlockSize, 0, y * BlockSize);
-            FRotator BlockRotation = FRotator::ZeroRotator;
+            if (x == 0 || x == BoardWidth - 1)
+            {
+                FVector BlockLocation = BoardOrigin + FVector(0, x * BlockSize - (BoardWidth * BlockSize) / 2, y * BlockSize);
+                FRotator BlockRotation = FRotator::ZeroRotator;
 
-            // 블록 생성
-            GetWorld()->SpawnActor<ABoardBlock>(BlockBlueprintClass, BlockLocation, BlockRotation);
+                GetWorld()->SpawnActor<ABoardBlock>(Block, BlockLocation, BlockRotation);
+            }
+
         }
     }
 }

@@ -23,16 +23,16 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tetris Settings")
-	int32 BoardWidth = 10;  // 가로 개수 (기본 10칸)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tetris")
+	int32 BoardWidth = 10;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tetris Settings")
-	int32 BoardHeight = 20; // 세로 개수 (기본 20칸)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tetris")
+	int32 BoardHeight = 20;
 
-	const int32 BlockSize = 50; // 블록 크기 (고정)
+	const int32 BlockSize = 50;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tetris Settings", meta = (AllowPrivateAccess = "true"))
-	TSubclassOf<class ABoardBlock> BlockBlueprintClass;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tetris", meta = (AllowPrivateAccess = "true"))
+	TSubclassOf<class ABoardBlock> Block;
 
 
 	void GenerateBoard();
