@@ -13,5 +13,10 @@ UCLASS()
 class TETRIS_API APlayGameMode : public AGameMode
 {
 	GENERATED_BODY()
-	
+public:
+	UFUNCTION(BlueprintCallable, Category = "Tetris")
+	int RandomTetrisBlock();
+
+	TArray<int> Blocks = { 0,1,2,3,4,5,6 };
+
 };

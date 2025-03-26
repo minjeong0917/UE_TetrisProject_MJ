@@ -32,9 +32,9 @@ void ATetrisBoard::GenerateBoard()
 
     for (int32 y = 0; y < BoardHeight; y++)
     {
-        for (int32 x = 0; x < BoardWidth; x++)
+        for (int32 x = 0; x <= BoardWidth+1; x++)
         {
-            if (x == 0 || x == BoardWidth - 1)
+            if (x == 0 || x == BoardWidth + 1)
             {
                 FVector BlockLocation = BoardOrigin + FVector(0, x * BlockSize - (BoardWidth * BlockSize) / 2, y * BlockSize);
                 FRotator BlockRotation = FRotator::ZeroRotator;
